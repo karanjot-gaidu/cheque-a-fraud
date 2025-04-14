@@ -10,24 +10,7 @@ export default function Navbar() {
     const { isSignedIn } = useUser();
     const { openSignIn, signOut } = useClerk();
 
-
-    const handlePlaySignIn = () => {
-        if (isSignedIn) {
-          router.push("/play");
-        } else {
-          openSignIn({ redirectUrl: "/play" });
-        }
-      };
-
-      const handleLearnSignIn = () => {
-        if (isSignedIn) {
-          router.push("/learn"); 
-        } else {
-          openSignIn({ redirectUrl: "/learn" }); 
-        }
-      };
-
-      const handleProfileSignIn = () => {
+    const handleProfileSignIn = () => {
         if (isSignedIn) {
           router.push("/profile");
         } else {
@@ -44,18 +27,8 @@ export default function Navbar() {
                     </Link>
                     <div className="flex items-center h-full space-x-6">
                         <Link href="/" className="flex items-center h-full px-3 text-white hover:text-[#008170] transition-colors">Home</Link>
-                        <button 
-                            onClick={handleLearnSignIn} 
-                            className="flex items-center h-full px-3 text-white hover:text-[#008170] transition-colors"
-                        >
-                            Learn
-                        </button>
-                        <button 
-                            onClick={handlePlaySignIn} 
-                            className="flex items-center h-full px-3 text-white hover:text-[#008170] transition-colors"
-                        >
-                            Play
-                        </button>
+                        <Link href="/learn" className="flex items-center h-full px-3 text-white hover:text-[#008170] transition-colors">Learn</Link>
+                        <Link href="/play" className="flex items-center h-full px-3 text-white hover:text-[#008170] transition-colors">Play</Link>
                         <Link href="/about" className="flex items-center h-full px-3 text-white hover:text-[#008170] transition-colors">About</Link>
                         <button onClick={handleProfileSignIn} className="flex items-center h-full px-3 text-white hover:text-[#008170] transition-colors">Profile</button>
                         <div className="flex items-center">
